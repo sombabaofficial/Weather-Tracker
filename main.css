@@ -64,7 +64,7 @@ body {
   border-radius: 8px;
   outline: none;
   font-size: 0.95rem;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(245, 238, 238, 0.648);
   color: #0f0e0e;
   transition: background 0.3s ease;
 }
@@ -74,7 +74,7 @@ body {
 }
 
 .search-box input:focus {
-  background: rgba(232, 166, 166, 0.3);
+  background: rgba(189, 179, 179, 0.426);
 }
 
 .search-box button {
