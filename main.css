@@ -1,98 +1,315 @@
+/* ---------- Global Styles ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: 'Poppins', Arial, sans-serif;
-    background: linear-gradient(135deg, #2C3E50, #4CA1AF);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    color: #fff;
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  background: linear-gradient(-45deg, #00c9ff, #92fe9d, #ff7e5f, #feb47b);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  transition: background 1s ease-in-out;
 }
 
-.container {
-    max-width: 400px;
-    width: 90%;
-    text-align: center;
-    padding: 25px;
-    background: rgba(0, 0, 0, 0.6); 
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    margin-top: 20px;
+/* ---------- Container ---------- */
+.app-wrapper {
+  width: 90%;
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
 }
 
-h1 {
-    font-size: 26px;
-    color: #f1f1f1;
-    margin-bottom: 15px;
+.app-wrapper:hover {
+  transform: scale(1.02);
 }
 
-input[type="text"] {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    border-radius: 8px;
-    font-size: 16px;
-    text-align: center;
-    background: rgba(255, 255, 255, 0.9); 
-    color: #222;
-    outline: none;
-    font-weight: bold;
+/* ---------- Header ---------- */
+.header .app-title {
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 0.3rem;
 }
 
-input[type="text"]:focus {
-    border-color: #fff;
-    background: rgba(255, 255, 255, 1);
+.header .subtitle {
+  font-size: 0.95rem;
+  color: rgba(0, 0, 0, 0.8);
+  margin-bottom: 1.6rem;
 }
 
-
-button {
-    background: linear-gradient(135deg, #FFD700, #FFA500);
-    color: #222;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    transition: all 0.3s ease-in-out;
+/* ---------- Search Box ---------- */
+.search-box {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
 }
 
-
-button:hover {
-    background: linear-gradient(135deg, #FFA500, #FF8C00);
-    transform: scale(1.05);
+.search-box input {
+  flex: 1;
+  padding: 0.6rem 0.9rem;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.2);
+  color: #0f0e0e;
+  transition: background 0.3s ease;
 }
 
+.search-box input::placeholder {
+  color: rgba(122, 118, 118, 0.7);
+}
 
+.search-box input:focus {
+  background: rgba(232, 166, 166, 0.3);
+}
+
+.search-box button {
+  padding: 0.6rem 1.2rem;
+  background: #234923;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.search-box button:hover {
+  background: #1d8c67;
+  transform: translateY(-1px);
+}
+
+/* ---------- Weather Info ---------- */
 .weather-info {
-    margin-top: 20px;
-    padding: 15px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.2);
-    color: #f8f8f8;
-    font-size: 18px;
-    font-weight: bold;
+  text-align: center;
+  margin-top: 1.2rem;
 }
 
-button, input {
-    transition: all 0.3s ease-in-out;
+.location-name {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.25rem;
 }
 
+.temperature {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0.4rem 0;
+}
 
+.description {
+  text-transform: capitalize;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1rem;
+}
+
+/* ---------- Extra Info Section ---------- */
+.extra-info {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.info-item {
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 0.6rem 0.9rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.hidden {
+  display: none;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* ---------- Animations ---------- */
+.temp-pulse {
+  animation: tempPulse 0.8s ease;
+}
+
+@keyframes tempPulse {
+  0% {
+    transform: scale(1);
+    color: #fff;
+  }
+  50% {
+    transform: scale(1.15);
+    color: #FFEB3B;
+  }
+  100% {
+    transform: scale(1);
+    color: #fff;
+  }
+}
+
+/* Custom Alert Effect */
+.custom-alert {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #F44336;
+  color: #fff;
+  padding: 0.8rem 1.2rem;
+  border-radius: 6px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+  opacity: 0.95;
+  transition: opacity 0.6s ease;
+  z-index: 9999;
+}
+
+.custom-alert.fade-out {
+  opacity: 0;
+}
+
+/* ---------- Responsive ---------- */
 @media (max-width: 480px) {
-    .container {
-        padding: 20px;
-    }
+  .app-wrapper {
+    padding: 1.5rem 1rem;
+  }
+  .temperature {
+    font-size: 2.3rem;
+  }
+}
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
-    h1 {
-        font-size: 22px;
-    }
+/* ---------- Bubble Background ---------- */
+.bubbles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+}
 
-    button {
-        width: 100%;
-        padding: 14px;
-    }
+.bubbles span {
+  position: absolute;
+  bottom: -150px;
+  display: block;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  animation: floatUp 12s linear infinite;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Random positions & delay for natural effect */
+.bubbles span:nth-child(1) {
+  left: 10%;
+  width: 100px;
+  height: 100px;
+  animation-delay: 0s;
+}
+.bubbles span:nth-child(2) {
+  left: 20%;
+  width: 60px;
+  height: 60px;
+  animation-delay: 2s;
+  animation-duration: 10s;
+}
+.bubbles span:nth-child(3) {
+  left: 35%;
+  width: 120px;
+  height: 120px;
+  animation-delay: 4s;
+}
+.bubbles span:nth-child(4) {
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  animation-delay: 1s;
+  animation-duration: 11s;
+}
+.bubbles span:nth-child(5) {
+  left: 65%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 3s;
+}
+.bubbles span:nth-child(6) {
+  left: 75%;
+  width: 90px;
+  height: 90px;
+  animation-delay: 5s;
+  animation-duration: 13s;
+}
+.bubbles span:nth-child(7) {
+  left: 85%;
+  width: 130px;
+  height: 130px;
+  animation-delay: 6s;
+}
+.bubbles span:nth-child(8) {
+  left: 90%;
+  width: 70px;
+  height: 70px;
+  animation-delay: 2.5s;
+}
+.bubbles span:nth-child(9) {
+  left: 25%;
+  width: 110px;
+  height: 110px;
+  animation-delay: 7s;
+}
+.bubbles span:nth-child(10) {
+  left: 55%;
+  width: 95px;
+  height: 95px;
+  animation-delay: 8s;
+}
+
+/* Animation movement */
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-50vh) scale(1.1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-100vh) scale(1.3);
+    opacity: 0;
+  }
 }
