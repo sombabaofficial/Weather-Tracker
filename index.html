@@ -1,23 +1,74 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
-    <link rel="stylesheet" href="main.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Tracker | Somesh Raj</title>
+  <link rel="stylesheet" href="main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <meta name="description" content="A sleek, fast weather tracker built by Somesh Raj using OpenWeather API." />
+  <meta name="theme-color" content="#1E88E5" />
 </head>
+
 <body>
-    <div class="container">
-        <h1>Weather App</h1>
-        <input type="text" id="locationInput" placeholder="Enter a city">
-        <button id="searchButton">Search</button>
-        <div class="weather-info">
-            <h2 id="location"></h2>
-            <p id="temperature"></p>
-            <p id="description"></p>
+    <div class="bubbles">
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+  <div class="app-wrapper">
+    <header class="header">
+      <h1 class="app-title">🌦️ Weather Tracker</h1>
+      <p class="subtitle">Get real-time weather updates for any city</p>
+    </header>
+
+    <main class="main-content">
+      <div class="search-box">
+        <input
+          type="text"
+          id="locationInput"
+          placeholder="Enter city name..."
+          aria-label="City name"
+          autocomplete="off"
+        />
+        <button id="searchButton" aria-label="Search weather">Search</button>
+      </div>
+
+      <section class="weather-info" aria-live="polite">
+        <div class="location-section">
+          <h2 id="location" class="location-name"></h2>
         </div>
-    </div>
-    <script src="main.js"></script>
+
+        <div class="temperature-section">
+          <p id="temperature" class="temperature"></p>
+        </div>
+
+        <div class="description-section">
+          <p id="description" class="description"></p>
+        </div>
+
+        <div id="extraInfo" class="extra-info hidden">
+          <div class="info-item">
+            <span id="humidity" class="label"></span>
+          </div>
+          <div class="info-item">
+            <span id="wind" class="label"></span>
+          </div>
+          <div class="info-item">
+            <span id="pressure" class="label"></span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Made with ❤️ by Somesh Raj</p>
+      <p>| Powered by OpenWeather |</p>
+    </footer>
+  </div>
+
+  <script src="main.js"></script>
 </body>
 </html>
